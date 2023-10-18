@@ -83,6 +83,9 @@ class Page:
             message=f'Element did not disappear: {locator}'
         )
 
+    def draw_element_on_screenshot(element, param):
+        pass
+
 
     def verify_text(self, expected_text, *locator):
         actual_text = self.find_element(*locator).text
