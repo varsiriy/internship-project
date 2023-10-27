@@ -12,6 +12,7 @@ def draw_element_on_screenshot(element, param):
 
 class MainPage(Page):
     SECONDARY_BTN = (By.CSS_SELECTOR, 'div.div-block-33 div.menu-button-text')
+    MOB_SECONDARY_BTN = (By.CSS_SELECTOR, 'a.menu-link[href="/secondary-listings"]')
 
     def open_soft_reelly(self):
         self.driver.get('https://soft.reelly.io/sign-in')
@@ -28,8 +29,13 @@ class MainPage(Page):
         # self.driver.save_screenshot('debug.png')
         # draw_element_on_screenshot(element, 'debug.png')
 
-        self.wait_for_element_clickable(*self.SECONDARY_BTN)
-        self.click(*self.SECONDARY_BTN)
+        # self.wait_for_element_clickable(*self.SECONDARY_BTN)
+        # self.click(*self.SECONDARY_BTN)
+
+        # Mobile
+        self.wait_for_element_clickable(*self.MOB_SECONDARY_BTN)
+        self.click(*self.MOB_SECONDARY_BTN)
+
 
 
 

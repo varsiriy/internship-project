@@ -21,9 +21,10 @@ class SecondaryOptionPage(Page):
 
         while current_pg <= page_count:
             print(f"Current Page: {current_pg}, Total Pages: {page_count}")
-            self.find_element(*self.PAGIN_NEXT_BTN).click()
             sleep(2)
+            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")  # Mobile test only
             self.wait_for_element_clickable(*self.PAGIN_NEXT_BTN)
+            self.find_element(*self.PAGIN_NEXT_BTN).click()
             current_pg += 1
 
         sleep(5)
@@ -34,9 +35,10 @@ class SecondaryOptionPage(Page):
 
         while current_pg >= 1:
             print(f"Current Page: {current_pg}, Total Pages: {page_count}")
-            self.find_element(*self.PAGIN_PREV_BTN).click()
             sleep(2)
+            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")  # Mobile test only
             self.wait_for_element_clickable(*self.PAGIN_PREV_BTN)
+            self.find_element(*self.PAGIN_PREV_BTN).click()
             current_pg -= 1
         print("Back on page 1")
 
